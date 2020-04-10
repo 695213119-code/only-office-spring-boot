@@ -1,0 +1,41 @@
+#------------基础配置---------------------
+server:
+  port: 8080
+spring:
+  application:
+    name: only-office-server
+  output:
+    ansi:
+      enabled: detect
+  #------------redis配置---------------------
+  redis:
+    database: 2
+    host: localhost
+    password:
+    port: 6379
+  #------------thymeleaf配置---------------------
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates
+
+
+  #------------文档配置---------------------
+document:
+  #启用redis缓存
+  cache:
+    redis:
+      enabled: true
+    #文档大小限制(单位：B)，超过就不再支持预览和编辑（默认10M）
+  file-size:
+    limit: 10485760
+    #对外暴露的服务地址，包含协议头、端口
+  server:
+    host: http://192.168.3.24:8080
+onlyoffice:
+  document-server:
+    api:
+      #onlyoffice文档服务提供的js api 地址
+      js: http://192.168.3.66:9100/web-apps/apps/api/documents/api.js
+      #onlyoffice文档服务Host,需带协议头和端口
+      host: http://192.168.3.66:9100
+
